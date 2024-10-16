@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Administrador</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .title_adm{
+            text-align: center;
+        }
+
+        .container_adm {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #5a31cc;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .logo img {
+            max-width: 350px;
+            margin-bottom: 20px;
+        }
+
+        .logo p {
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 50px;
+        }
+
+        nav ul {
+            list-style: none;
+            width: 100%;
+        }
+
+        nav ul li {
+            width: 100%;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.4em;
+            padding: 10px;
+            display: block;
+        }
+
+        nav ul li a.active {
+            background-color: white;
+            color: #5a31cc;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            color: #5a31cc;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #5a31cc;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            margin-top: 10px;
+            color: #5a31cc;
+            font-size: 1.6em;
+        }
+
+        .search-box {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+            font-size: 1.2em;
+        }
+
+        .table th {
+            background-color: #5a31cc;
+            color: white;
+            font-size: 1.1em;
+        }
+
+        .edit-btn,
+        .add-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #5a31cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .edit-btn:hover,
+        .add-btn:hover {
+            background-color: #5a31cc;
+        }
+
+        .delete-btn {
+            padding: 5px 10px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background-color: darkred;
+        }
+
+        .highlight {
+            background-color: #ffff99;
+        }
+
+        .add-form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .add-form input {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+
+        /* Estilo para a tela embaçada */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Fundo embaçado */
+            display: none; /* Escondido por padrão */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo do pop-up */
+        .popup {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .popup h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .popup label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .popup input[type="text"],
+        .popup input[type="number"],
+        .popup textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .popup textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .popup button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #45a049;
+        }
+
+        /* Botão para abrir o pop-up */
+        .open-popup-btn {
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        .open-popup-btn:hover {
+            background-color: #007B9E;
+        }
+
+        /* Botão de fechar */
+        .close-popup-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-popup-btn:hover {
+            background-color: #d73833;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container_adm">
+        <aside class="sidebar">
+            <div class="logo"> <img src="logo.png" alt="Imagem do Aluno"> </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Usuários</a></li>
+                    <li><a href="#">Professores</a></li>
+                    <li><a href="#" class="active">Alunos</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <h2 class="title_adm">Painel do Administrador</h2>
+            <h3>Alunos</h3>
+            <div class="search-box"> <input type="text" id="search-input" placeholder="Pesquisar o nome de algum aluno"
+                    onkeyup="searchStudent()"> </div>
+            <table class="table" id="alunos-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Aluno</th>
+                        <th>Rm</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Maria Silva</td>
+                        <td>rm86691</td>
+                        <td>rm86691@estudante.fieb.edu.br</td>
+                        <td><button class="delete-btn" onclick="deleteRow(this)">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>João Santos</td>
+                        <td>rm86634</td>
+                        <td>rm86634@estudante.fieb.edu.br</td>
+                        <td><button class="delete-btn" onclick="deleteRow(this)">Excluir</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ana Lima</td>
+                        <td>rm86693</td>
+                        <td>rm86693@estudante.fieb.edu.br</td>
+                        <td><button class="delete-btn" onclick="deleteRow(this)">Excluir</button></td>
+                    </tr>
+                </tbody>
+            </table> <button class="edit-btn" >Editar</button> 
+            <!-- Botão para abrir o formulário -->
+    <button class="edit-btn" onclick="openPopup()">Adicionar novo</button>
+
+    <!-- Tela embaçada com o pop-up -->
+    <div id="overlay" class="overlay">
+        <div class="popup">
+            <h2>Avaliação do TCC</h2>
+            <form>
+                <!-- Nome do professor -->
+                <label for="professor">Nome do Professor</label>
+                <input type="text" id="professor" name="professor" required>
+
+                <!-- Nota da documentação -->
+                <label for="notaDocumentacao">Nota da Documentação</label>
+                <input type="number" id="notaDocumentacao" name="notaDocumentacao" min="0" max="10" required>
+
+                <!-- Nota da apresentação -->
+                <label for="notaApresentacao">Nota da Apresentação</label>
+                <input type="number" id="notaApresentacao" name="notaApresentacao" min="0" max="10" required>
+
+                <!-- Nota do FrontEnd -->
+                <label for="notaFrontEnd">Nota do FrontEnd</label>
+                <input type="number" id="notaFrontEnd" name="notaFrontEnd" min="0" max="10" required>
+
+                <!-- Nota do BackEnd -->
+                <label for="notaBackEnd">Nota do BackEnd</label>
+                <input type="number" id="notaBackEnd" name="notaBackEnd" min="0" max="10" required>
+
+                <!-- Nota do Mobile -->
+                <label for="notaMobile">Nota do Mobile</label>
+                <input type="number" id="notaMobile" name="notaMobile" min="0" max="10" required>
+
+                <!-- Comentário -->
+                <label for="comentario">Comentário</label>
+                <textarea id="comentario" name="comentario"></textarea>
+
+                <!-- Botão de envio -->
+                <button type="submit">Enviar Avaliação</button>
+            </form>
+
+            <!-- Botão para fechar o pop-up -->
+            <button class="close-popup-btn" onclick="closePopup()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para abrir o pop-up
+        function openPopup() {
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        // Função para fechar o pop-up
+        function closePopup() {
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+        </main>
+    </div>
+</body>
+
+</html>

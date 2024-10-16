@@ -1,0 +1,102 @@
+package br.itb.projeto.Tcc_Plus.model.entity;
+
+import java.time.LocalDateTime;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+@Entity
+@Table(name = "Projeto_Avaliacao")
+public class Projeto_Avaliacao {
+	@Id
+private long id;
+private LocalDateTime ano;
+@ManyToOne
+@JoinColumn(name = "usuario_id")
+private Usuario usuario;
+private int nota_doc;
+private int nota_apresentacao;
+private int nota_frontEnd;
+private int nota_backEnd;
+private int nota_mobile;
+private int nota_final;
+private String obs_projeto;
+private String statusAvaliacao;
+@ManyToOne
+@JoinColumn(name = "projeto_id")
+private Projeto projeto;
+public long getId() {
+	return id;
+}
+public void setId(long id) {
+	this.id = id;
+}
+public LocalDateTime getAno() {
+	return ano;
+}
+public void setAno(LocalDateTime ano) {
+	this.ano = ano;
+}
+public Usuario getUsuario() {
+	return usuario;
+}
+public void setUsuario(Usuario usuario) {
+	this.usuario = usuario;
+}
+public int getNota_doc() {
+	return nota_doc;
+}
+public void setNota_doc(int nota_doc) {
+	this.nota_doc = nota_doc;
+}
+public int getNota_apresentacao() {
+	return nota_apresentacao;
+}
+public void setNota_apresentacao(int nota_apresentacao) {
+	this.nota_apresentacao = nota_apresentacao;
+}
+public int getNota_frontEnd() {
+	return nota_frontEnd;
+}
+public void setNota_frontEnd(int nota_frontEnd) {
+	this.nota_frontEnd = nota_frontEnd;
+}
+public int getNota_backEnd() {
+	return nota_backEnd;
+}
+public void setNota_backEnd(int nota_backEnd) {
+	this.nota_backEnd = nota_backEnd;
+}
+public int getNota_mobile() {
+	return nota_mobile;
+}
+public void setNota_mobile(int nota_mobile) {
+	this.nota_mobile = nota_mobile;
+}
+public int getNota_final() {
+	return nota_final;
+}
+public void setNota_final(int nota_final) {
+	this.nota_final = nota_final;
+}
+public String getObs_projeto() {
+	return obs_projeto;
+}
+public void setObs_projeto(String obs_projeto) {
+	this.obs_projeto = obs_projeto;
+}
+public Projeto getProjeto() {
+	return projeto;
+}
+public void setProjeto(Projeto projeto) {
+	this.projeto = projeto;
+}
+public String getStatusAvaliacao() {
+	return statusAvaliacao;
+}
+public void setStatusAvaliacao(String statusAvaliacao) {
+	this.statusAvaliacao = statusAvaliacao;
+}
+}

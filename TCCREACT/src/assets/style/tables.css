@@ -1,0 +1,122 @@
+.bodyprof {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Definindo a cor de fundo na div que engloba tudo */
+    min-height: 100vh; /* Para garantir que cubra toda a altura da página */
+    
+    
+  }
+  
+  .professor-main {
+    width: 80%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .professor-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+  }
+
+  
+  .caixafiltro{
+    display: flex;
+    width: 100%;
+    margin-top: 3%;
+  }
+  .professor-form {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* O formulário ocupará 100% da largura do main */
+    margin-bottom: 20px;
+  }
+
+
+  .labelprojprof{
+
+    margin-left: 5%
+  }
+
+  .professor-input {
+    width: 30%; /* Ajuste conforme a necessidade */
+    padding: 10px;
+    font-size: 1em;
+    border: 4px solid #000000;
+    border-radius: 5px;
+    color: black; /* Cor do texto do input */
+    border-bottom: #000000;
+    background-color: #000;
+  }
+  
+  /* Estilo específico para o placeholder */
+  .professor-input::placeholder {
+    color: #000000; /* Cor para o texto do placeholder */
+    opacity: 1;  /* Garante que a opacidade do placeholder não seja reduzida */
+  }
+  
+  .professor-select {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 15%;
+    height: 40px;
+    margin-top: 15px;
+  }
+  
+  .professor-button {
+    padding: 10px 20px;
+    background-color: #4d6e2b;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 20%;
+    height: 40px;
+    margin-top: 15px;
+  }
+  
+  .professor-button:hover {
+    background-color: #32cd32;
+  }
+  .professor-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .professor-table th,
+  .professor-table td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .professor-table th {
+    background-color: #483d8b;
+    color: white;
+  }
+  
+  .professor-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .professor-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .professor-link {
+    color: #483d8b;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .professor-link:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,72 @@
+/* acesso negado */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 30px; /* Aumenta o padding para mais espaço interno */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%; /* Define uma largura maior */
+    max-width: 1000px; /* Aumenta o valor máximo da largura */
+    min-height: 200px; /* Define uma altura mínima para o popup */
+    text-align: center;
+  }
+  
+  .popup-content p {
+    margin-bottom: 20px;
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    color: #333;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Alternativamente, você pode usar justify-content: center; */
+    gap: 20px; /* Espaço entre os botões */
+    margin-top: 20px;
+  }
+
+  .popup-content button {
+    background-color: #f24e4e;
+    color: white;
+    border: none;
+    width: 35%;
+    padding: 12px 28px; /* Aumenta o tamanho do botão */
+    border-radius: 5px;
+    cursor: pointer;
+
+  }
+  
+  .popup-content button:hover {
+    background-color: #604ef2;
+  }
+
+  .input-line {
+    border: none;               /* Remove as bordas padrões do input */
+    border-bottom: 2px solid #1c1c1c;  /* Adiciona uma linha preta na parte inferior */
+    background-color: transparent;   /* Remove o fundo do input */
+    width: 100%;               /* O input ocupará 100% da largura do contêiner */
+    padding: 10px;             /* Adiciona um pouco de espaço interno */
+    font-size: 16px;           /* Define o tamanho da fonte */
+    color: black;
+  }
+  
+  .input-line:focus {
+    outline: none;              /* Remove o contorno padrão ao focar no input */
+    border-bottom: 2px solid #604ef2; /* Cor da linha ao focar no input */
+  }
+
+  .input-line::placeholder {
+    color: rgb(32, 32, 32);           
+    opacity: 1;                
+  }

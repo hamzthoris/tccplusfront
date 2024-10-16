@@ -1,0 +1,18 @@
+package br.itb.projeto.Tcc_Plus.model.repository;
+
+import java.util.List;
+import org.springframework.stereotype.Repository;
+
+import br.itb.projeto.Tcc_Plus.model.entity.Aluno;
+import br.itb.projeto.Tcc_Plus.model.entity.Professor;
+
+@Repository
+public interface ProfessorRepository{
+	Professor find();
+	List<Professor> findAll();
+	Professor findByid(int id);
+	Professor findByNome(String nome);
+	Professor findByMatricula(int matricula);
+	
+
+}

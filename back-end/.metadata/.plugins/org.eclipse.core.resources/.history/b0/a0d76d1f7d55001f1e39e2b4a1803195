@@ -1,0 +1,29 @@
+package br.itb.projeto.Tcc_Plus.rest.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.itb.projeto.Tcc_Plus.model.entity.Projeto_Avaliacao;
+import br.itb.projeto.Tcc_Plus.service.Projeto_AvaliacaoService;
+
+@RestController
+@RequestMapping("/Projeto_Avaliacao/")
+public class Projeto_AvaliacaoController {
+	private Projeto_AvaliacaoService projeto_AvaliacaoService;
+
+	public Projeto_AvaliacaoController(Projeto_AvaliacaoService projeto_AvaliacaoService) {
+		super();
+		this.projeto_AvaliacaoService = projeto_AvaliacaoService;
+	}
+	@GetMapping("findAll")
+	public ResponseEntity<List<Projeto_Avaliacao>> findAll(){
+		List <Projeto_Avaliacao> projeto_Avaliacoes = projeto_AvaliacaoService.findAll();
+		return new ResponseEntity<List<Projeto_Avaliacao>>(projeto_Avaliacoes, HttpStatus.OK);
+	}
+
+}
