@@ -1,11 +1,14 @@
-import React from 'react'
+
 import React from 'react'
 import IntegranteService from '../../services/IntegranteService.js'
 import NavBar from '../../components/NavBar.jsx';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import UsuarioService from '../../services/UsuarioService.js';
 
 const IntegranteRegister = () => {
+    const user = UsuarioService.getCurrentUser();
     const navigate = useNavigate();
     const [formData, setFormData] = useState({});
     const [successful, setSuccessful] = useState(false);
@@ -14,7 +17,7 @@ const IntegranteRegister = () => {
     const [isVisible, setIsVisible] = useState(true);
 
     const closePopup = () => {
-      setIsVisible(false);
+      navigate(`/showproject/` + user.id)
     };
 
     const handleChange = (e) => {
@@ -31,7 +34,6 @@ const IntegranteRegister = () => {
                 setMessage(response.data.message);
                 setSuccessful(true);
 
-                setIsVisible(false);
             }, (error) => {
                 const message = error.response.data.message;
                 setMessage(message);
@@ -52,6 +54,14 @@ const IntegranteRegister = () => {
             name='nome'
             value={formData.nome}
             onChange={handleChange}  />
+          <button type="submit" className="form-btn">ENVIAR</button>
+          <span className="span1">RM</span>
+          <input type="text" placeholder="rmXXXXX" autocomplete="off" required 
+            id='inputRM'
+            name='Rm'
+            value={formData.rm}
+            onChange={handleChange}  />
+            <input type="hidden" id='inputstatusIntegrante' name="statusIntegrante" value={formData.statusIntegrante='ATIVO'} onChange={handleChange}/>
           <button type="submit" className="form-btn">ENVIAR</button>
           </>
         )}

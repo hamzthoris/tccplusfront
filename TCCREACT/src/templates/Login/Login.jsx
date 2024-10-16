@@ -44,6 +44,9 @@ const Login = () => {
                 else if (user.statusUsuario == 'ATIVO' && user.nivelAcesso == 'Professor') {
                   navigate('/visualizar', {state:{user: userJson}});
               } 
+              else if (user.statusUsuario == 'ATIVO' && user.nivelAcesso == 'adm') {
+                navigate('/paineladm', {state:{user: userJson}});
+            } 
             },
             (error) => {
                 const respMessage =

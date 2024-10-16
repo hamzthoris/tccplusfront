@@ -70,7 +70,9 @@ const findByNome = nome => {
 const inativar = (id) => {
     return http.mainInstance.put(API_URL + `inativar/${id}`);
 }
-
+const reativar = (id) => {
+    return http.mainInstance.put(`${API_URL}reativar/${id}`);
+}
 
 
 const UsuarioService = {
@@ -85,6 +87,7 @@ const UsuarioService = {
     alterarSenha,
     findByNome,
     inativar,
+    reativar,
 }
 
 export default UsuarioService;

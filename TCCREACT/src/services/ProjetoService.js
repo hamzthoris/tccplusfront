@@ -85,6 +85,10 @@ const inativar = (id) => {
     return http.mainInstance.put(API_URL + `inativar/${id}`);
 }
 
+const reativar = (id) => {
+    return http.mainInstance.put(`${API_URL}reativar/${id}`);
+}
+
 const ProjetoService = {
     findAll,
     findById,
@@ -99,6 +103,7 @@ const ProjetoService = {
     alterarSenha,
     findByNome,
     inativar,
+    reativar,
 }
 
 export default ProjetoService;

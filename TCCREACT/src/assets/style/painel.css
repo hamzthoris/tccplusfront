@@ -1,203 +1,165 @@
-.mainbody {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
+.container1 {
+  display: flex;
+  width: 100%;
+  height: 80vh; /* Altura total da tela */
+  background-color: #f5f5f5; /* Fundo da página */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.sidebar1 {
+  width: 15%;
+  background-color: #5a31cc;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.logo1 img {
+  max-width: 350px;
+  margin-bottom: 15px;
+}
+
+nav ul {
+  list-style: none;
+  width: 100%;
+}
+
+nav ul li {
+  width: 100%;
+  text-align: center;
+  margin: 15px 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4em;
+  padding: 10px;
+  display: block;
+}
+
+nav ul li a.active1 {
+  background-color: white;
+  color: #5a31cc;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  background-color: white;
+  color: #5a31cc;
+}
+
+.main-content1 {
+  width: 80%;
+  padding: 20px;
+  display: flex; /* Para centralizar o conteúdo dentro do main */
+  flex-direction: column; /* Alinhamento vertical */
+  align-items: center; /* Centraliza horizontalmente */
+}
+
+.h2 {
+  font-size: 1.8em;
+  color: #5a31cc;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 10px;
+  color: #5a31cc;
+  font-size: 1.6em;
+}
+
+.search-box1 {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  width: 100%; /* Para garantir que ocupa toda a largura */
+}
+
+.search-box1 input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2em;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.table1 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table1 th,
+.table1 td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.table1 th {
+  background-color: #5a31cc;
+  color: white;
+  font-size: 1.1em;
+}
+
+.edit-btn1,
+.add-btn1 {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #5a31cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-btn1:hover,
+.add-btn1:hover {
+  background-color: #5a31cc; /* Adiciona um leve efeito de hover */
+}
+
+.delete-btn1 {
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-btn1:hover {
+  background-color: darkred;
+}
+.editar-btn1 {
+  padding: 5px 10px;
+  background-color: #5a31cc;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.editar-btn1:hover {
+  background-color: #7256c0;
+}
+
+
+.button-container3 {
+  display: flex; /* Usar flexbox para alinhar os botões */
+  gap: 10px; /* Espaçamento entre os botões */
+  margin-top: 20px; /* Margem superior opcional para espaçamento */
+}
+
+.td {
+    display: flex; /* Alinha os botões em linha */
+    gap: 10px; /* Ajuste o valor de acordo com o espaçamento desejado */
   
-  .mainbody {
-    height: 100%;
-    display: flex;
-    background-color: #f5f5f5;
-  }
   
-  .container_01_adm {
-    display: flex;
-    width: 100%;
-    height: 100vh; /* Garante que o container ocupe a altura total da janela */
-  }
-  
-  .sidebar_01 {
-    width: 20%;
-    background-color: #5a31cc;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    height: 100vh; /* Sidebar ocupa toda a altura */
-  }
-  
-  .logo_01 img {
-    max-width: 350px;
-    margin-bottom: 20px;
-  }
-  
-  nav ul {
-    list-style: none;
-    width: 100%;
-  }
-  
-  nav ul li {
-    width: 100%;
-    text-align: center;
-    margin: 15px 0;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.4em;
-    padding: 10px;
-    display: block;
-  }
-  
-  nav ul li a.active_01 {
-    background-color: white;
-    color: #5a31cc;
-    font-weight: bold;
-  }
-  
-  nav ul li a:hover {
-    background-color: white;
-    color: #5a31cc;
-  }
-  
-  .mainContent_01 {
-    flex-grow: 1; /* Permite que o conteúdo principal ocupe o restante da largura */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .title_01_adm {
-    text-align: center;
-  }
-  
-  .sectionTitle_01 {
-    margin-top: 10px;
-    color: #5a31cc;
-    font-size: 1.6em;
-  }
-  
-  .searchBox_01 {
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .searchBox_01 input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.2em;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .table_01 {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table_01 th, .table_01 td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-    font-size: 1.2em;
-  }
-  
-  .table_01 th {
-    background-color: #5a31cc;
-    color: white;
-  }
-  
-  .editBtn_01, .addBtn_01 {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #5a31cc;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .deleteBtn_01 {
-    padding: 5px 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-  
-  .deleteBtn_01:hover {
-    background-color: darkred;
-  }
-  
-  .overlay_01 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .popup_01 {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 500px;
-    width: 100%;
-    z-index: 2;
-  }
-  
-  .popup_01 h2 {
-    text-align: center;
-  }
-  
-  .popup_01 label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-  }
-  
-  .popup_01 input[type="text"], .popup_01 input[type="number"], .popup_01 textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .popup_01 textarea {
-    resize: none;
-    height: 100px;
-  }
-  
-  .popup_01 button {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .closePopupBtn_01 {
-    background-color: #f44336;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
+}

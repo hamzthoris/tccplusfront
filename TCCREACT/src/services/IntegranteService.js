@@ -20,8 +20,17 @@ const update = (id, data) => {
     return http.mainInstance.put(API_URL + `update/${id}`, formData);;
 };
 
-const UsuarioService = {
+const inativar = (id) => {
+    return http.mainInstance.put(API_URL + `inativar/${id}`);
+}
+
+
+const IntegranteService = {
     findAll,
     create,
     update,
+    inativar,
+    
 }
+
+export default IntegranteService;
